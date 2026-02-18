@@ -5,6 +5,7 @@ from motor.motor_asyncio import AsyncIOMotorClient
 MONGO_URL = "mongodb://host.docker.internal:27017"
 client = AsyncIOMotorClient(os.getenv("MONGO_URL", "mongodb://host.docker.internal:27017"))
 db = client.practiceapp
+collection = db.events
 
 async def get_all_events():
     events = []

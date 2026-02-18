@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 from fastapi import FastAPI
 from .mongodb import get_all_events 
 from .database import get_db_users
