@@ -37,7 +37,6 @@ python -m venv venv
 source venv/bin/activate
 
 pip install -r requirements.txt
-
 ```
 
 ### 3. Running the Application
@@ -46,8 +45,29 @@ Start the FastAPI server:
 
 ```bash
 python -m uvicorn app.main:app --port 8001 --reload
-
 ```
+
+## 🐳 Docker Deployment
+
+To run this project locally using Docker:
+
+1. **Build the image:**
+
+```bash
+docker build -t fastapi-app .
+```
+
+2. **Run the container:**
+
+```bash
+docker run -p 8001:8001 \
+  -e DB_PASS=your_password \
+  -e DB_HOST=host.docker.internal \
+  -e MONGO_URL=mongodb://host.docker.internal:27017 \
+  fastapi-app
+```
+
+The app will be available at `http://localhost:8001/all-data`
 
 ## 📍 API Endpoints
 
@@ -61,4 +81,4 @@ python -m uvicorn app.main:app --port 8001 --reload
 
 ---
 
-_Note: This project was developed as part of a database performance and integration study._
+\_Note: This project was developed as part of a database performance and integration study.
